@@ -1,0 +1,23 @@
+services:
+  dev-env:
+    labels:
+      org.opencontainers.image.title: $PROJECT_NAME-dev-env
+      org.opencontainers.image.description: Development environment image of $PROJECT_NAME
+    image: $PROJECT_NAME-dev-env
+    build:
+      context: $PWD
+      dockerfile: $PWD/docker/Dockerfile
+    environment:
+      DEV_ENV_CURRENT: $PROJECT_NAME
+      SSH_AUTH_SOCK: $HOST_SSH_AUTH_SOCK
+      TERM:
+      CI:
+    user: $HOST_UID:$HOST_GID
+    volumes:
+      - $HOST_SSH_AUTH_SOCK:$HOST_SSH_AUTH_SOCK
+      - $PWD/docker/host/group:/etc/group:ro
+      - $PWD/docker/host/passwd:/etc/passwd:ro
+      - $PWD/docker/host/sudoer:/etc/sudoers.d/$HOST_USERNAME:ro
+      - $PWD:$PWD
+    working_dir: $PWD
+    entrypoint: ["$PWD/docker/env.sh", "_entrypoint"]

@@ -1,2 +1,0 @@
-# shell-utils
-Shell utilities
