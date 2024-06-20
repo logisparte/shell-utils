@@ -19,7 +19,7 @@ SOME_REPLACED_FILE_CONTENT_2="$SOME_REPLACEMENT_STRING 2"
 
 Describe "find_and_replace_in_directory"
   before_all() {
-    mkdir "$TEST_DATA_DIRECTORY"
+    mkdir -p "$TEST_DATA_DIRECTORY"
     mkdir "$SOME_DIRECTORY_1"
     mkdir "$SOME_DIRECTORY_2"
     echo "$SOME_FILE_CONTENT_1" >> "$SOME_FILE_1"
