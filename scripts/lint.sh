@@ -1,11 +1,11 @@
 #!/bin/sh -e
 
-. ./src/colorize.sh
-. ./src/fail.sh
-. ./src/git/list_all_files.sh
-. ./src/git/list_dirty_files.sh
-. ./src/git/list_staged_files.sh
-. ./src/report.sh
+. ./scripts/utils/colorize.sh
+. ./scripts/utils/fail.sh
+. ./scripts/utils/git/list_all_files.sh
+. ./scripts/utils/git/list_dirty_files.sh
+. ./scripts/utils/git/list_staged_files.sh
+. ./scripts/utils/report.sh
 
 FILTER="$1"
 

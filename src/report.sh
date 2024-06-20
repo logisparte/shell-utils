@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ./src/colorize.sh
+. ./scripts/utils/colorize.sh
 
 report() {
   KIND="$1"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ./src/report.sh
+. ./scripts/utils/report.sh
 
 fail() {
   MESSAGE="$1"

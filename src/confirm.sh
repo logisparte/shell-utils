@@ -1,8 +1,8 @@
 #!/bin/sh
 
-. ./src/colorize.sh
-. ./src/fail.sh
-. ./src/report.sh
+. ./scripts/utils/colorize.sh
+. ./scripts/utils/fail.sh
+. ./scripts/utils/report.sh
 
 confirm() {
   case "$1" in

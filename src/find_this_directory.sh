@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ./src/get_absolute_directory_path.sh
+. ./scripts/utils/get_absolute_directory_path.sh
 
 find_this_directory() {
   EXECUTABLE_FILE_PATH="$(_get_initial_executable_file_path)"
