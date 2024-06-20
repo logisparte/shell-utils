@@ -1,7 +1,7 @@
 #!/bin/sh
 
-. ./src/colorize.sh
-. ./src/report.sh
+. ./scripts/utils/colorize.sh
+. ./scripts/utils/report.sh
 
 press_enter_to_continue() {
   MESSAGE="${1-"Press ENTER to continue"}"

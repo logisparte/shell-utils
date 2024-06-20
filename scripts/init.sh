@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-. ./src/report.sh
+. ./scripts/utils/report.sh
 
 report --info "[init] Configuring git hooks"
 git config --local core.hooksPath "$PWD/hooks"

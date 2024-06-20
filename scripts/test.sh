@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
-. ./src/fail.sh
-. ./src/report.sh
+. ./scripts/utils/fail.sh
+. ./scripts/utils/report.sh
 
 TEST_SUITE_DIRECTORY="$PWD/tests/suites"
 
