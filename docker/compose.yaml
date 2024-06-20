@@ -14,7 +14,7 @@ services:
       CI:
     user: $HOST_UID:$HOST_GID
     volumes:
-      - $HOST_SSH_AUTH_SOCK:$HOST_SSH_AUTH_SOCK
+      - ${HOST_SSH_AUTH_SOCK:-/dev/null}:${HOST_SSH_AUTH_SOCK:-/dev/null}
       - $PWD/docker/host/group:/etc/group:ro
       - $PWD/docker/host/passwd:/etc/passwd:ro
       - $PWD/docker/host/sudoer:/etc/sudoers.d/$HOST_USERNAME:ro

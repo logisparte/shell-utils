@@ -96,6 +96,7 @@ _init() {
   # SSH socket
   if [ "$(uname)" = "Darwin" ]; then
     HOST_SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" # Docker for Mac workaround
+
   else
     HOST_SSH_AUTH_SOCK="$SSH_AUTH_SOCK"
   fi
@@ -112,8 +113,15 @@ _init() {
   echo "$HOST_USERNAME:x:$HOST_GID:" > "$GROUP_FILE"
 
   # /etc/sudoers.d/$HOST_USERNAME file
+  if ! sudo -n true 2> /dev/null; then
+    echo "[docker:init] This script will generate a 'sudoers.d' file to be mounted in the" \
+      "development container. As this file needs to be owned by the root user, your password" \
+      "will be required."
+  fi
+
   echo "$HOST_USERNAME ALL=(ALL) NOPASSWD:ALL" > "$SUDOER_FILE"
   chmod 440 "$SUDOER_FILE"
+  sudo chown root "$SUDOER_FILE"
 
   # docker compose env file
   {
@@ -128,8 +136,7 @@ _init() {
 _entrypoint() {
   USERNAME="$(id -un)"
 
-  sudo chown "$USERNAME" "$SSH_AUTH_SOCK"
-
+  # Rationalize ownership of project's ancestor directories
   PARENT_DIRECTORY="$(dirname "$PWD")"
   while [ "$PARENT_DIRECTORY" != "/" ]; do
     sudo chown "$USERNAME" "$PARENT_DIRECTORY"
@@ -140,11 +147,12 @@ _entrypoint() {
     PARENT_DIRECTORY="$(dirname "$PARENT_DIRECTORY")"
   done
 
-  if [ $# -eq 0 ]; then
-    tail -f /dev/null
+  # Exec provided command or pause to keep container alive
+  if [ $# -gt 0 ]; then
+    "$@"
 
   else
-    "$@"
+    tail -f /dev/null
   fi
 }
 
