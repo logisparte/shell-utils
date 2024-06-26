@@ -13,11 +13,11 @@ find_this_directory
 Use with a variable assignment:
 
 ```shell
-# /tactics/combat/form_phalanx
+# ./tactics/combat/form_phalanx.sh
 
 CURRENT_DIRECTORY="$(find_this_directory)"
 ```
 
-To have `$CURRENT_DIRECTORY` equal to `/tactics/combat`
+To have `$CURRENT_DIRECTORY` equal to `$PWD/tactics/combat.sh`
 
 > Also works if the executable is executed through a symbolic link

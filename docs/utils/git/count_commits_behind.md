@@ -14,6 +14,6 @@ Use in numeric comparisons:
 
 ```shell
 if [ "$(count_commits_behind)" -gt 0 ]; then
-  # Bring the frontline closer
+  # Pull back the frontline
 fi
 ```

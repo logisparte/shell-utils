@@ -1,6 +1,6 @@
 # colorize
 
-Colorize text to be displayed in the terminal
+Colorize text to be printed in the terminal
 
 ## Usage
 
@@ -8,8 +8,7 @@ Colorize text to be displayed in the terminal
 colorize [COLOR_OPTION] TEXT
 
 TEXT: The text to colorize
-
-COLOR_OPTION: Can be one of:
+COLOR_OPTIONS: One of:
   --black
   --maroon
   --green
@@ -35,7 +34,7 @@ COLOR_OPTION: Can be one of:
   where COLOR_CODE is a number between 0 and 255 matching an xterm color code
 ```
 
-> If `NO_COLOR=1` is set in the environment, no color will be applied
+> If `NO_COLOR` is set in the environment, no color will be applied
 
 ## Examples
 

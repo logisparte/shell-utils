@@ -5,14 +5,12 @@ Ask the user a close-ended question to determine the flow of execution
 ## Usage
 
 ```text
-confirm (OPTIONS) [QUESTION]
+confirm [NON_INTERACTIVE_OPTION] [QUESTION]
 
-OPTIONS:
-  --yes: Automatically resolve to true
-  --no: Automatically resolve to false
-
-QUESTION: The close-ended question to ask the user
-  default: "Are you sure?"
+QUESTION: The close-ended question to ask the user (default: "Are you sure?")
+NON_INTERACTIVE_OPTIONS:
+  --yes: Default to true in non-interactive environments
+  --no: Default to false in non-interactive environments
 ```
 
 ## Examples

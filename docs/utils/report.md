@@ -8,14 +8,10 @@ Prints a message in the terminal, optionally in color
 report [KIND] MESSAGE
 
 MESSAGE: The message to report
-
-KIND: Can be one of:
+KIND: One of:
   --success: Will output the message in lime green
-
   --info: Will output the message in aqua blue
-
   --warning: Will output the message in yellow
-
   --error: Will output the message in red and send it to STDERR
 
 ```

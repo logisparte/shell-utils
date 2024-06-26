@@ -17,13 +17,13 @@ REPLACEMENT_STRING: The string to replace ORIGINAL_STRING with
 With context:
 
 ```shell
-# /diplomacy/list_all_relations
+# ./diplomacy/list_all_relations.sh
 
 echo "Themistocles is an ally"
 ```
 
 ```shell
-# /diplomacy/athens/list_athenian_relations
+# ./diplomacy/athens/list_athenian_relations.sh
 
 echo "Themistocles is an ally"
 ```
@@ -31,19 +31,19 @@ echo "Themistocles is an ally"
 Use directly:
 
 ```shell
-find_and_replace_in_directory "/diplomacy" "Themistocles is an ally" "Themistocles is an enemy"
+find_and_replace_in_directory "./diplomacy" "Themistocles is an ally" "Themistocles is an enemy"
 ```
 
 To result in:
 
 ```shell
-# /diplomacy/list_all_relations
+# ./diplomacy/list_all_relations.sh
 
 echo "Themistocles is an enemy"
 ```
 
 ```shell
-# /diplomacy/athens/list_athenian_relations
+# ./diplomacy/athens/list_athenian_relations.sh
 
 echo "Themistocles is an enemy"
 ```

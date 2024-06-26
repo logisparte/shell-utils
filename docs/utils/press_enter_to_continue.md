@@ -7,8 +7,7 @@ Pause execution until user presses `ENTER`
 ```text
 press_enter_to_continue [MESSAGE]
 
-MESSAGE: The message to display
-  default: "Press ENTER to continue"
+MESSAGE: The message to display (default: "Press ENTER to continue")
 ```
 
 ## Examples
