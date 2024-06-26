@@ -5,13 +5,6 @@ Include "$PWD/src/confirm.sh"
 SOME_QUESTION="Some question?"
 
 Describe "confirm"
-  fail() {
-    # shellcheck disable=SC2034
-    fail_called_with="$*"
-    %preserve fail_called_with
-    exit 1
-}
-
   report() {
     # shellcheck disable=SC2034
     report_called_with="$*"
@@ -44,8 +37,13 @@ Describe "confirm"
       It "should fail with the expected error message"
         When run confirm
         The status should be failure
-        The variable fail_called_with should equal \
-          "[::confirm] Terminal is not interactive and no default answer provided (--yes/--no)"
+        The variable report_called_with should end with "$(
+                                                           echo \
+          "--error" \
+          "[::confirm] Terminal is not interactive and no default answer provided" \
+          "(--yes/--no)"
+)"
+
       End
     End
 

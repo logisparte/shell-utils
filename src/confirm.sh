@@ -1,7 +1,6 @@
 #!/bin/sh
 
 . ./scripts/utils/colorize.sh
-. ./scripts/utils/fail.sh
 . ./scripts/utils/report.sh
 
 confirm() {
@@ -32,7 +31,9 @@ confirm() {
     ANSWER="$AUTO_ANSWER"
 
   else
-    fail "[::confirm] Terminal is not interactive and no default answer provided (--yes/--no)"
+    report --error \
+      "[::confirm] Terminal is not interactive and no default answer provided (--yes/--no)"
+    exit 1
   fi
 
   case "$ANSWER" in
