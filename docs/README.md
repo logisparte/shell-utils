@@ -66,7 +66,7 @@ To stop the development container:
 ```
 
 > For more information about `docker-env`, use `./docker/env.sh --help` and read the
-> [documentation](https://github.com/logisparte/docker-env/docs)
+> [documentation](https://github.com/logisparte/docker-env/tree/master/docs)
 
 ### Scripts
 
