@@ -8,8 +8,8 @@ Ask the user a close-ended question to determine the flow of execution
 confirm (OPTIONS) [QUESTION]
 
 OPTIONS:
-  -y | --yes: Automatically resolve to true
-  -n | --no: Automatically resolve to false
+  --yes: Automatically resolve to true
+  --no: Automatically resolve to false
 
 QUESTION: The close-ended question to ask the user
   default: "Are you sure?"
@@ -27,12 +27,12 @@ else
 fi
 ```
 
-Add `-y/--yes` or `-n/--no` option to automatically bypass user input:
+Add `--yes` or `--no` option to add a default answer for non-interactive environments:
 
 ```shell
 if confirm --yes "Send 300 men to Thermopylae?"; then
   # March.
 else
-  # <Execution will never go through here>
+  # <Execution will never go through here in non-interactive environments>
 fi
 ```

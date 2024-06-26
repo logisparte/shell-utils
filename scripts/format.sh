@@ -1,7 +1,6 @@
 #!/bin/sh -e
 
 . ./scripts/utils/colorize.sh
-. ./scripts/utils/fail.sh
 . ./scripts/utils/git/list_all_files.sh
 . ./scripts/utils/git/list_dirty_files.sh
 . ./scripts/utils/git/list_staged_files.sh
@@ -26,11 +25,12 @@ case "$FILTER" in
     ;;
 
   *)
-    fail "[format] Unknown filter: '$FILTER'"
+    report --error "[format] Unknown filter: '$FILTER'"
+    exit 1
     ;;
 esac
 
-PRETTIER_FILES="$(echo "$FILES" | grep -e "\.md$" -e "\.yml$" -e "\.yaml$" || true)"
+PRETTIER_FILES="$(echo "$FILES" | grep -e "\.md$" -e "\.yaml$" || true)"
 if [ -n "$PRETTIER_FILES" ]; then
   report --info "Markdown and yaml files >>"
   echo "$PRETTIER_FILES" | xargs prettier --write

@@ -1,6 +1,5 @@
 #!/bin/sh -e
 
-. ./scripts/utils/fail.sh
 . ./scripts/utils/report.sh
 
 TEST_SUITE_DIRECTORY="$PWD/tests/suites"
@@ -16,7 +15,8 @@ elif [ -d "$TEST_SUITE_DIRECTORY/$SUITE_NAME" ]; then
   SUITE_PATH="$TEST_SUITE_DIRECTORY/$SUITE_NAME"
 
 else
-  fail "[test] No test suite named '$SUITE_NAME'"
+  report --error "[test] No test suite named '$SUITE_NAME'"
+  exit 1
 fi
 
 # bash shell is required because of

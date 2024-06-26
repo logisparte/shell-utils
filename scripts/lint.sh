@@ -1,7 +1,6 @@
 #!/bin/sh -e
 
 . ./scripts/utils/colorize.sh
-. ./scripts/utils/fail.sh
 . ./scripts/utils/git/list_all_files.sh
 . ./scripts/utils/git/list_dirty_files.sh
 . ./scripts/utils/git/list_staged_files.sh
@@ -26,13 +25,15 @@ case "$FILTER" in
     ;;
 
   *)
-    fail "[lint] Unknown filter: '$FILTER'"
+    report --error "[lint] Unknown filter: '$FILTER'"
+    exit 1
     ;;
 esac
 
 MARKDOWN_FILES="$(echo "$FILES" | grep -e "\.md$" || true)"
 if [ -n "$MARKDOWN_FILES" ]; then
   report --info "Markdown files >>"
+  report "$(colorize --gray "$MARKDOWN_FILES")"
   echo "$MARKDOWN_FILES" | xargs markdownlint
 fi
 
